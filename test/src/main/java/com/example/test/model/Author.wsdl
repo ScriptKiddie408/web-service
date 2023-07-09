@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://model.test.example.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax21="http://model.test.example.com/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://model.test.example.com">
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.test.example.com/xsd">
+            <xs:complexType name="Author_AuthorBuilder">
+                <xs:sequence/>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax22="http://model.test.example.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.test.example.com">
+            <xs:import namespace="http://model.test.example.com/xsd"/>
+            <xs:element name="setMiddleName">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="middleName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setLastName">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setInfo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="info" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setId">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setFirstNane">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="firstNane" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMiddleName">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMiddleNameResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getLastName">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getLastNameResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getInfo">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getInfoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getId">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getIdResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getFirstNane">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getFirstNaneResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="builder">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="builderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Author_AuthorBuilder"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="setLastNameRequest">
+        <wsdl:part name="parameters" element="ns:setLastName"/>
+    </wsdl:message>
+    <wsdl:message name="setFirstNaneRequest">
+        <wsdl:part name="parameters" element="ns:setFirstNane"/>
+    </wsdl:message>
+    <wsdl:message name="getInfoRequest">
+        <wsdl:part name="parameters" element="ns:getInfo"/>
+    </wsdl:message>
+    <wsdl:message name="getInfoResponse">
+        <wsdl:part name="parameters" element="ns:getInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="builderRequest">
+        <wsdl:part name="parameters" element="ns:builder"/>
+    </wsdl:message>
+    <wsdl:message name="builderResponse">
+        <wsdl:part name="parameters" element="ns:builderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setIdRequest">
+        <wsdl:part name="parameters" element="ns:setId"/>
+    </wsdl:message>
+    <wsdl:message name="getIdRequest">
+        <wsdl:part name="parameters" element="ns:getId"/>
+    </wsdl:message>
+    <wsdl:message name="getIdResponse">
+        <wsdl:part name="parameters" element="ns:getIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setInfoRequest">
+        <wsdl:part name="parameters" element="ns:setInfo"/>
+    </wsdl:message>
+    <wsdl:message name="getFirstNaneRequest">
+        <wsdl:part name="parameters" element="ns:getFirstNane"/>
+    </wsdl:message>
+    <wsdl:message name="getFirstNaneResponse">
+        <wsdl:part name="parameters" element="ns:getFirstNaneResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setMiddleNameRequest">
+        <wsdl:part name="parameters" element="ns:setMiddleName"/>
+    </wsdl:message>
+    <wsdl:message name="getMiddleNameRequest">
+        <wsdl:part name="parameters" element="ns:getMiddleName"/>
+    </wsdl:message>
+    <wsdl:message name="getMiddleNameResponse">
+        <wsdl:part name="parameters" element="ns:getMiddleNameResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getLastNameRequest">
+        <wsdl:part name="parameters" element="ns:getLastName"/>
+    </wsdl:message>
+    <wsdl:message name="getLastNameResponse">
+        <wsdl:part name="parameters" element="ns:getLastNameResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="AuthorPortType">
+        <wsdl:operation name="setLastName">
+            <wsdl:input message="ns:setLastNameRequest" wsaw:Action="urn:setLastName"/>
+        </wsdl:operation>
+        <wsdl:operation name="setFirstNane">
+            <wsdl:input message="ns:setFirstNaneRequest" wsaw:Action="urn:setFirstNane"/>
+        </wsdl:operation>
+        <wsdl:operation name="getInfo">
+            <wsdl:input message="ns:getInfoRequest" wsaw:Action="urn:getInfo"/>
+            <wsdl:output message="ns:getInfoResponse" wsaw:Action="urn:getInfoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <wsdl:input message="ns:builderRequest" wsaw:Action="urn:builder"/>
+            <wsdl:output message="ns:builderResponse" wsaw:Action="urn:builderResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <wsdl:input message="ns:setIdRequest" wsaw:Action="urn:setId"/>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <wsdl:input message="ns:getIdRequest" wsaw:Action="urn:getId"/>
+            <wsdl:output message="ns:getIdResponse" wsaw:Action="urn:getIdResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setInfo">
+            <wsdl:input message="ns:setInfoRequest" wsaw:Action="urn:setInfo"/>
+        </wsdl:operation>
+        <wsdl:operation name="getFirstNane">
+            <wsdl:input message="ns:getFirstNaneRequest" wsaw:Action="urn:getFirstNane"/>
+            <wsdl:output message="ns:getFirstNaneResponse" wsaw:Action="urn:getFirstNaneResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setMiddleName">
+            <wsdl:input message="ns:setMiddleNameRequest" wsaw:Action="urn:setMiddleName"/>
+        </wsdl:operation>
+        <wsdl:operation name="getMiddleName">
+            <wsdl:input message="ns:getMiddleNameRequest" wsaw:Action="urn:getMiddleName"/>
+            <wsdl:output message="ns:getMiddleNameResponse" wsaw:Action="urn:getMiddleNameResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getLastName">
+            <wsdl:input message="ns:getLastNameRequest" wsaw:Action="urn:getLastName"/>
+            <wsdl:output message="ns:getLastNameResponse" wsaw:Action="urn:getLastNameResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="AuthorSoap11Binding" type="ns:AuthorPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="setLastName">
+            <soap:operation soapAction="urn:setLastName" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="setFirstNane">
+            <soap:operation soapAction="urn:setFirstNane" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getInfo">
+            <soap:operation soapAction="urn:getInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <soap:operation soapAction="urn:builder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <soap:operation soapAction="urn:setId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <soap:operation soapAction="urn:getId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setInfo">
+            <soap:operation soapAction="urn:setInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getFirstNane">
+            <soap:operation soapAction="urn:getFirstNane" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setMiddleName">
+            <soap:operation soapAction="urn:setMiddleName" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getMiddleName">
+            <soap:operation soapAction="urn:getMiddleName" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLastName">
+            <soap:operation soapAction="urn:getLastName" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="AuthorSoap12Binding" type="ns:AuthorPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="setLastName">
+            <soap12:operation soapAction="urn:setLastName" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="setFirstNane">
+            <soap12:operation soapAction="urn:setFirstNane" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getInfo">
+            <soap12:operation soapAction="urn:getInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <soap12:operation soapAction="urn:builder" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <soap12:operation soapAction="urn:setId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <soap12:operation soapAction="urn:getId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setInfo">
+            <soap12:operation soapAction="urn:setInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getFirstNane">
+            <soap12:operation soapAction="urn:getFirstNane" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setMiddleName">
+            <soap12:operation soapAction="urn:setMiddleName" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getMiddleName">
+            <soap12:operation soapAction="urn:getMiddleName" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLastName">
+            <soap12:operation soapAction="urn:getLastName" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="AuthorHttpBinding" type="ns:AuthorPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="setLastName">
+            <http:operation location="setLastName"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="setFirstNane">
+            <http:operation location="setFirstNane"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getInfo">
+            <http:operation location="getInfo"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <http:operation location="builder"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <http:operation location="setId"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <http:operation location="getId"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setInfo">
+            <http:operation location="setInfo"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getFirstNane">
+            <http:operation location="getFirstNane"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setMiddleName">
+            <http:operation location="setMiddleName"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getMiddleName">
+            <http:operation location="getMiddleName"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLastName">
+            <http:operation location="getLastName"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Author">
+        <wsdl:port name="AuthorHttpSoap11Endpoint" binding="ns:AuthorSoap11Binding">
+            <soap:address location="http://localhost:8080//services/com/example/test/model/Author"/>
+        </wsdl:port>
+        <wsdl:port name="AuthorHttpSoap12Endpoint" binding="ns:AuthorSoap12Binding">
+            <soap12:address location="http://localhost:8080//services/com/example/test/model/Author"/>
+        </wsdl:port>
+        <wsdl:port name="AuthorHttpEndpoint" binding="ns:AuthorHttpBinding">
+            <http:address location="http://localhost:8080//services/com/example/test/model/Author"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

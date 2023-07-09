@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ax23="http://model.test.example.com/xsd" xmlns:ns="http://model.test.example.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax21="http://id.model.test.example.com/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://model.test.example.com">
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://id.model.test.example.com/xsd">
+            <xs:complexType name="AuthorArticleId">
+                <xs:sequence/>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.test.example.com/xsd">
+            <xs:complexType name="AuthorType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Author">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="firstNane" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="info" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="middleName" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Article">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="category" nillable="true" type="ax23:Category"/>
+                    <xs:element minOccurs="0" name="content" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="creationDate" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="delete" nillable="true" type="ax23:Author"/>
+                    <xs:element minOccurs="0" name="editor" nillable="true" type="ax23:Author"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="externalResources" nillable="true" type="ax23:ExternalResource"/>
+                    <xs:element minOccurs="0" name="header" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="isMainArticle" nillable="true" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="isPubliclyAccessible" nillable="true" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="publicationDate" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="publicationEndDate" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="ax23:Status"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tags" nillable="true" type="ax23:Tag"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Category">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ExternalResource">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="articles" nillable="true" type="ax23:Article"/>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="link" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="readableLink" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="resourceType" nillable="true" type="ax23:ResourceType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResourceType">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="externalResources" nillable="true" type="ax23:ExternalResource"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Status">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Tag">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="articles" nillable="true" type="ax23:Article"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AuthorArticle_AuthorArticleBuilder">
+                <xs:sequence/>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax22="http://id.model.test.example.com/xsd" xmlns:ax24="http://model.test.example.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.test.example.com">
+            <xs:import namespace="http://id.model.test.example.com/xsd"/>
+            <xs:import namespace="http://model.test.example.com/xsd"/>
+            <xs:element name="setId">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="id" nillable="true" type="ax22:AuthorArticleId"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setAuthorType">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="authorType" nillable="true" type="ax24:AuthorType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setAuthor">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="author" nillable="true" type="ax24:Author"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setArticle">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="article" nillable="true" type="ax24:Article"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getId">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getIdResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:AuthorArticleId"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAuthorType">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAuthorTypeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax24:AuthorType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAuthor">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAuthorResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax24:Author"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getArticle">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getArticleResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax24:Article"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="builder">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="builderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax24:AuthorArticle_AuthorArticleBuilder"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="setArticleRequest">
+        <wsdl:part name="parameters" element="ns:setArticle"/>
+    </wsdl:message>
+    <wsdl:message name="setAuthorRequest">
+        <wsdl:part name="parameters" element="ns:setAuthor"/>
+    </wsdl:message>
+    <wsdl:message name="getAuthorRequest">
+        <wsdl:part name="parameters" element="ns:getAuthor"/>
+    </wsdl:message>
+    <wsdl:message name="getAuthorResponse">
+        <wsdl:part name="parameters" element="ns:getAuthorResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getArticleRequest">
+        <wsdl:part name="parameters" element="ns:getArticle"/>
+    </wsdl:message>
+    <wsdl:message name="getArticleResponse">
+        <wsdl:part name="parameters" element="ns:getArticleResponse"/>
+    </wsdl:message>
+    <wsdl:message name="builderRequest">
+        <wsdl:part name="parameters" element="ns:builder"/>
+    </wsdl:message>
+    <wsdl:message name="builderResponse">
+        <wsdl:part name="parameters" element="ns:builderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setIdRequest">
+        <wsdl:part name="parameters" element="ns:setId"/>
+    </wsdl:message>
+    <wsdl:message name="getIdRequest">
+        <wsdl:part name="parameters" element="ns:getId"/>
+    </wsdl:message>
+    <wsdl:message name="getIdResponse">
+        <wsdl:part name="parameters" element="ns:getIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setAuthorTypeRequest">
+        <wsdl:part name="parameters" element="ns:setAuthorType"/>
+    </wsdl:message>
+    <wsdl:message name="getAuthorTypeRequest">
+        <wsdl:part name="parameters" element="ns:getAuthorType"/>
+    </wsdl:message>
+    <wsdl:message name="getAuthorTypeResponse">
+        <wsdl:part name="parameters" element="ns:getAuthorTypeResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="AuthorArticlePortType">
+        <wsdl:operation name="setArticle">
+            <wsdl:input message="ns:setArticleRequest" wsaw:Action="urn:setArticle"/>
+        </wsdl:operation>
+        <wsdl:operation name="setAuthor">
+            <wsdl:input message="ns:setAuthorRequest" wsaw:Action="urn:setAuthor"/>
+        </wsdl:operation>
+        <wsdl:operation name="getAuthor">
+            <wsdl:input message="ns:getAuthorRequest" wsaw:Action="urn:getAuthor"/>
+            <wsdl:output message="ns:getAuthorResponse" wsaw:Action="urn:getAuthorResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getArticle">
+            <wsdl:input message="ns:getArticleRequest" wsaw:Action="urn:getArticle"/>
+            <wsdl:output message="ns:getArticleResponse" wsaw:Action="urn:getArticleResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <wsdl:input message="ns:builderRequest" wsaw:Action="urn:builder"/>
+            <wsdl:output message="ns:builderResponse" wsaw:Action="urn:builderResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <wsdl:input message="ns:setIdRequest" wsaw:Action="urn:setId"/>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <wsdl:input message="ns:getIdRequest" wsaw:Action="urn:getId"/>
+            <wsdl:output message="ns:getIdResponse" wsaw:Action="urn:getIdResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setAuthorType">
+            <wsdl:input message="ns:setAuthorTypeRequest" wsaw:Action="urn:setAuthorType"/>
+        </wsdl:operation>
+        <wsdl:operation name="getAuthorType">
+            <wsdl:input message="ns:getAuthorTypeRequest" wsaw:Action="urn:getAuthorType"/>
+            <wsdl:output message="ns:getAuthorTypeResponse" wsaw:Action="urn:getAuthorTypeResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="AuthorArticleSoap11Binding" type="ns:AuthorArticlePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="setArticle">
+            <soap:operation soapAction="urn:setArticle" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="setAuthor">
+            <soap:operation soapAction="urn:setAuthor" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getAuthor">
+            <soap:operation soapAction="urn:getAuthor" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getArticle">
+            <soap:operation soapAction="urn:getArticle" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <soap:operation soapAction="urn:builder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <soap:operation soapAction="urn:setId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <soap:operation soapAction="urn:getId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setAuthorType">
+            <soap:operation soapAction="urn:setAuthorType" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getAuthorType">
+            <soap:operation soapAction="urn:getAuthorType" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="AuthorArticleSoap12Binding" type="ns:AuthorArticlePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="setArticle">
+            <soap12:operation soapAction="urn:setArticle" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="setAuthor">
+            <soap12:operation soapAction="urn:setAuthor" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getAuthor">
+            <soap12:operation soapAction="urn:getAuthor" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getArticle">
+            <soap12:operation soapAction="urn:getArticle" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <soap12:operation soapAction="urn:builder" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <soap12:operation soapAction="urn:setId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <soap12:operation soapAction="urn:getId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setAuthorType">
+            <soap12:operation soapAction="urn:setAuthorType" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getAuthorType">
+            <soap12:operation soapAction="urn:getAuthorType" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="AuthorArticleHttpBinding" type="ns:AuthorArticlePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="setArticle">
+            <http:operation location="setArticle"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="setAuthor">
+            <http:operation location="setAuthor"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getAuthor">
+            <http:operation location="getAuthor"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getArticle">
+            <http:operation location="getArticle"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <http:operation location="builder"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <http:operation location="setId"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <http:operation location="getId"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setAuthorType">
+            <http:operation location="setAuthorType"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getAuthorType">
+            <http:operation location="getAuthorType"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="AuthorArticle">
+        <wsdl:port name="AuthorArticleHttpSoap11Endpoint" binding="ns:AuthorArticleSoap11Binding">
+            <soap:address location="http://localhost:8080//services/com/example/test/model/AuthorArticle"/>
+        </wsdl:port>
+        <wsdl:port name="AuthorArticleHttpSoap12Endpoint" binding="ns:AuthorArticleSoap12Binding">
+            <soap12:address location="http://localhost:8080//services/com/example/test/model/AuthorArticle"/>
+        </wsdl:port>
+        <wsdl:port name="AuthorArticleHttpEndpoint" binding="ns:AuthorArticleHttpBinding">
+            <http:address location="http://localhost:8080//services/com/example/test/model/AuthorArticle"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

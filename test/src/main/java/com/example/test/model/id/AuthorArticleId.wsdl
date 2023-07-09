@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://id.model.test.example.com" targetNamespace="http://id.model.test.example.com">
+    <wsdl:types/>
+    <wsdl:portType name="AuthorArticleIdPortType"/>
+    <wsdl:binding name="AuthorArticleIdSoap11Binding" type="tns:AuthorArticleIdPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    </wsdl:binding>
+    <wsdl:binding name="AuthorArticleIdSoap12Binding" type="tns:AuthorArticleIdPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    </wsdl:binding>
+    <wsdl:binding name="AuthorArticleIdHttpBinding" type="tns:AuthorArticleIdPortType">
+        <http:binding verb="POST"/>
+    </wsdl:binding>
+    <wsdl:service name="AuthorArticleId">
+        <wsdl:port name="AuthorArticleIdHttpSoap11Endpoint" binding="tns:AuthorArticleIdSoap11Binding">
+            <soap:address location="http://localhost:8080//services/com/example/test/model/id/AuthorArticleId"/>
+        </wsdl:port>
+        <wsdl:port name="AuthorArticleIdHttpSoap12Endpoint" binding="tns:AuthorArticleIdSoap12Binding">
+            <soap12:address location="http://localhost:8080//services/com/example/test/model/id/AuthorArticleId"/>
+        </wsdl:port>
+        <wsdl:port name="AuthorArticleIdHttpEndpoint" binding="tns:AuthorArticleIdHttpBinding">
+            <http:address location="http://localhost:8080//services/com/example/test/model/id/AuthorArticleId"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

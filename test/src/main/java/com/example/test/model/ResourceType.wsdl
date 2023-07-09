@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://model.test.example.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax21="http://model.test.example.com/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://model.test.example.com">
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.test.example.com/xsd">
+            <xs:complexType name="ExternalResource">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="articles" nillable="true" type="ax21:Article"/>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="link" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="readableLink" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="resourceType" nillable="true" type="ax21:ResourceType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Article">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="category" nillable="true" type="ax21:Category"/>
+                    <xs:element minOccurs="0" name="content" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="creationDate" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="delete" nillable="true" type="ax21:Author"/>
+                    <xs:element minOccurs="0" name="editor" nillable="true" type="ax21:Author"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="externalResources" nillable="true" type="ax21:ExternalResource"/>
+                    <xs:element minOccurs="0" name="header" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="isMainArticle" nillable="true" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="isPubliclyAccessible" nillable="true" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="publicationDate" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="publicationEndDate" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="ax21:Status"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tags" nillable="true" type="ax21:Tag"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Category">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Author">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="firstNane" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="info" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="middleName" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Status">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Tag">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="articles" nillable="true" type="ax21:Article"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResourceType">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="externalResources" nillable="true" type="ax21:ExternalResource"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResourceType_ResourceTypeBuilder">
+                <xs:sequence/>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax22="http://model.test.example.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.test.example.com">
+            <xs:import namespace="http://model.test.example.com/xsd"/>
+            <xs:element name="setName">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setId">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setExternalResources">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="externalResources" nillable="true" type="ax22:ExternalResource"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getName">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getNameResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getId">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getIdResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getExternalResources">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getExternalResourcesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax22:ExternalResource"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="builder">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="builderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:ResourceType_ResourceTypeBuilder"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="setNameRequest">
+        <wsdl:part name="parameters" element="ns:setName"/>
+    </wsdl:message>
+    <wsdl:message name="getExternalResourcesRequest">
+        <wsdl:part name="parameters" element="ns:getExternalResources"/>
+    </wsdl:message>
+    <wsdl:message name="getExternalResourcesResponse">
+        <wsdl:part name="parameters" element="ns:getExternalResourcesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getNameRequest">
+        <wsdl:part name="parameters" element="ns:getName"/>
+    </wsdl:message>
+    <wsdl:message name="getNameResponse">
+        <wsdl:part name="parameters" element="ns:getNameResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setExternalResourcesRequest">
+        <wsdl:part name="parameters" element="ns:setExternalResources"/>
+    </wsdl:message>
+    <wsdl:message name="builderRequest">
+        <wsdl:part name="parameters" element="ns:builder"/>
+    </wsdl:message>
+    <wsdl:message name="builderResponse">
+        <wsdl:part name="parameters" element="ns:builderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setIdRequest">
+        <wsdl:part name="parameters" element="ns:setId"/>
+    </wsdl:message>
+    <wsdl:message name="getIdRequest">
+        <wsdl:part name="parameters" element="ns:getId"/>
+    </wsdl:message>
+    <wsdl:message name="getIdResponse">
+        <wsdl:part name="parameters" element="ns:getIdResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ResourceTypePortType">
+        <wsdl:operation name="setName">
+            <wsdl:input message="ns:setNameRequest" wsaw:Action="urn:setName"/>
+        </wsdl:operation>
+        <wsdl:operation name="getExternalResources">
+            <wsdl:input message="ns:getExternalResourcesRequest" wsaw:Action="urn:getExternalResources"/>
+            <wsdl:output message="ns:getExternalResourcesResponse" wsaw:Action="urn:getExternalResourcesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getName">
+            <wsdl:input message="ns:getNameRequest" wsaw:Action="urn:getName"/>
+            <wsdl:output message="ns:getNameResponse" wsaw:Action="urn:getNameResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setExternalResources">
+            <wsdl:input message="ns:setExternalResourcesRequest" wsaw:Action="urn:setExternalResources"/>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <wsdl:input message="ns:builderRequest" wsaw:Action="urn:builder"/>
+            <wsdl:output message="ns:builderResponse" wsaw:Action="urn:builderResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <wsdl:input message="ns:setIdRequest" wsaw:Action="urn:setId"/>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <wsdl:input message="ns:getIdRequest" wsaw:Action="urn:getId"/>
+            <wsdl:output message="ns:getIdResponse" wsaw:Action="urn:getIdResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ResourceTypeSoap11Binding" type="ns:ResourceTypePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="setName">
+            <soap:operation soapAction="urn:setName" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getExternalResources">
+            <soap:operation soapAction="urn:getExternalResources" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getName">
+            <soap:operation soapAction="urn:getName" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setExternalResources">
+            <soap:operation soapAction="urn:setExternalResources" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <soap:operation soapAction="urn:builder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <soap:operation soapAction="urn:setId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <soap:operation soapAction="urn:getId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ResourceTypeSoap12Binding" type="ns:ResourceTypePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="setName">
+            <soap12:operation soapAction="urn:setName" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getExternalResources">
+            <soap12:operation soapAction="urn:getExternalResources" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getName">
+            <soap12:operation soapAction="urn:getName" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setExternalResources">
+            <soap12:operation soapAction="urn:setExternalResources" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <soap12:operation soapAction="urn:builder" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <soap12:operation soapAction="urn:setId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <soap12:operation soapAction="urn:getId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ResourceTypeHttpBinding" type="ns:ResourceTypePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="setName">
+            <http:operation location="setName"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getExternalResources">
+            <http:operation location="getExternalResources"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getName">
+            <http:operation location="getName"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setExternalResources">
+            <http:operation location="setExternalResources"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <http:operation location="builder"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <http:operation location="setId"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <http:operation location="getId"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ResourceType">
+        <wsdl:port name="ResourceTypeHttpSoap11Endpoint" binding="ns:ResourceTypeSoap11Binding">
+            <soap:address location="http://localhost:8080//services/com/example/test/model/ResourceType"/>
+        </wsdl:port>
+        <wsdl:port name="ResourceTypeHttpSoap12Endpoint" binding="ns:ResourceTypeSoap12Binding">
+            <soap12:address location="http://localhost:8080//services/com/example/test/model/ResourceType"/>
+        </wsdl:port>
+        <wsdl:port name="ResourceTypeHttpEndpoint" binding="ns:ResourceTypeHttpBinding">
+            <http:address location="http://localhost:8080//services/com/example/test/model/ResourceType"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

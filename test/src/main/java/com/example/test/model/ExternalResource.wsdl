@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://model.test.example.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax21="http://model.test.example.com/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://model.test.example.com">
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.test.example.com/xsd">
+            <xs:complexType name="ResourceType">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="externalResources" nillable="true" type="ax21:ExternalResource"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ExternalResource">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="articles" nillable="true" type="ax21:Article"/>
+                    <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="link" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="readableLink" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="resourceType" nillable="true" type="ax21:ResourceType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Article">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="category" nillable="true" type="ax21:Category"/>
+                    <xs:element minOccurs="0" name="content" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="creationDate" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="delete" nillable="true" type="ax21:Author"/>
+                    <xs:element minOccurs="0" name="editor" nillable="true" type="ax21:Author"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="externalResources" nillable="true" type="ax21:ExternalResource"/>
+                    <xs:element minOccurs="0" name="header" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="isMainArticle" nillable="true" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="isPubliclyAccessible" nillable="true" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="publicationDate" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="publicationEndDate" nillable="true" type="xs:date"/>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="ax21:Status"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tags" nillable="true" type="ax21:Tag"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Category">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Author">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="firstNane" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="info" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="middleName" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Status">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Tag">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="articles" nillable="true" type="ax21:Article"/>
+                    <xs:element minOccurs="0" name="id" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ExternalResource_ExternalResourceBuilder">
+                <xs:sequence/>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax22="http://model.test.example.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.test.example.com">
+            <xs:import namespace="http://model.test.example.com/xsd"/>
+            <xs:element name="setResourceType">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="resourceType" nillable="true" type="ax22:ResourceType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setReadableLink">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="readableLink" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setLink">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="link" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setId">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setDescription">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setArticles">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="articles" nillable="true" type="ax22:Article"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getResourceType">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getResourceTypeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:ResourceType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getReadableLink">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getReadableLinkResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getLink">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getLinkResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getId">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getIdResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDescription">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDescriptionResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getArticles">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getArticlesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax22:Article"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="builder">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="builderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:ExternalResource_ExternalResourceBuilder"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getArticlesRequest">
+        <wsdl:part name="parameters" element="ns:getArticles"/>
+    </wsdl:message>
+    <wsdl:message name="getArticlesResponse">
+        <wsdl:part name="parameters" element="ns:getArticlesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getIdRequest">
+        <wsdl:part name="parameters" element="ns:getId"/>
+    </wsdl:message>
+    <wsdl:message name="getIdResponse">
+        <wsdl:part name="parameters" element="ns:getIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setDescriptionRequest">
+        <wsdl:part name="parameters" element="ns:setDescription"/>
+    </wsdl:message>
+    <wsdl:message name="getReadableLinkRequest">
+        <wsdl:part name="parameters" element="ns:getReadableLink"/>
+    </wsdl:message>
+    <wsdl:message name="getReadableLinkResponse">
+        <wsdl:part name="parameters" element="ns:getReadableLinkResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setArticlesRequest">
+        <wsdl:part name="parameters" element="ns:setArticles"/>
+    </wsdl:message>
+    <wsdl:message name="getDescriptionRequest">
+        <wsdl:part name="parameters" element="ns:getDescription"/>
+    </wsdl:message>
+    <wsdl:message name="getDescriptionResponse">
+        <wsdl:part name="parameters" element="ns:getDescriptionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setLinkRequest">
+        <wsdl:part name="parameters" element="ns:setLink"/>
+    </wsdl:message>
+    <wsdl:message name="getLinkRequest">
+        <wsdl:part name="parameters" element="ns:getLink"/>
+    </wsdl:message>
+    <wsdl:message name="getLinkResponse">
+        <wsdl:part name="parameters" element="ns:getLinkResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getResourceTypeRequest">
+        <wsdl:part name="parameters" element="ns:getResourceType"/>
+    </wsdl:message>
+    <wsdl:message name="getResourceTypeResponse">
+        <wsdl:part name="parameters" element="ns:getResourceTypeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setReadableLinkRequest">
+        <wsdl:part name="parameters" element="ns:setReadableLink"/>
+    </wsdl:message>
+    <wsdl:message name="setResourceTypeRequest">
+        <wsdl:part name="parameters" element="ns:setResourceType"/>
+    </wsdl:message>
+    <wsdl:message name="builderRequest">
+        <wsdl:part name="parameters" element="ns:builder"/>
+    </wsdl:message>
+    <wsdl:message name="builderResponse">
+        <wsdl:part name="parameters" element="ns:builderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setIdRequest">
+        <wsdl:part name="parameters" element="ns:setId"/>
+    </wsdl:message>
+    <wsdl:portType name="ExternalResourcePortType">
+        <wsdl:operation name="getArticles">
+            <wsdl:input message="ns:getArticlesRequest" wsaw:Action="urn:getArticles"/>
+            <wsdl:output message="ns:getArticlesResponse" wsaw:Action="urn:getArticlesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <wsdl:input message="ns:getIdRequest" wsaw:Action="urn:getId"/>
+            <wsdl:output message="ns:getIdResponse" wsaw:Action="urn:getIdResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setDescription">
+            <wsdl:input message="ns:setDescriptionRequest" wsaw:Action="urn:setDescription"/>
+        </wsdl:operation>
+        <wsdl:operation name="getReadableLink">
+            <wsdl:input message="ns:getReadableLinkRequest" wsaw:Action="urn:getReadableLink"/>
+            <wsdl:output message="ns:getReadableLinkResponse" wsaw:Action="urn:getReadableLinkResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setArticles">
+            <wsdl:input message="ns:setArticlesRequest" wsaw:Action="urn:setArticles"/>
+        </wsdl:operation>
+        <wsdl:operation name="getDescription">
+            <wsdl:input message="ns:getDescriptionRequest" wsaw:Action="urn:getDescription"/>
+            <wsdl:output message="ns:getDescriptionResponse" wsaw:Action="urn:getDescriptionResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setLink">
+            <wsdl:input message="ns:setLinkRequest" wsaw:Action="urn:setLink"/>
+        </wsdl:operation>
+        <wsdl:operation name="getLink">
+            <wsdl:input message="ns:getLinkRequest" wsaw:Action="urn:getLink"/>
+            <wsdl:output message="ns:getLinkResponse" wsaw:Action="urn:getLinkResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getResourceType">
+            <wsdl:input message="ns:getResourceTypeRequest" wsaw:Action="urn:getResourceType"/>
+            <wsdl:output message="ns:getResourceTypeResponse" wsaw:Action="urn:getResourceTypeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setReadableLink">
+            <wsdl:input message="ns:setReadableLinkRequest" wsaw:Action="urn:setReadableLink"/>
+        </wsdl:operation>
+        <wsdl:operation name="setResourceType">
+            <wsdl:input message="ns:setResourceTypeRequest" wsaw:Action="urn:setResourceType"/>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <wsdl:input message="ns:builderRequest" wsaw:Action="urn:builder"/>
+            <wsdl:output message="ns:builderResponse" wsaw:Action="urn:builderResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <wsdl:input message="ns:setIdRequest" wsaw:Action="urn:setId"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ExternalResourceSoap11Binding" type="ns:ExternalResourcePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getArticles">
+            <soap:operation soapAction="urn:getArticles" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <soap:operation soapAction="urn:getId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setDescription">
+            <soap:operation soapAction="urn:setDescription" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getReadableLink">
+            <soap:operation soapAction="urn:getReadableLink" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setArticles">
+            <soap:operation soapAction="urn:setArticles" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getDescription">
+            <soap:operation soapAction="urn:getDescription" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setLink">
+            <soap:operation soapAction="urn:setLink" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getLink">
+            <soap:operation soapAction="urn:getLink" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getResourceType">
+            <soap:operation soapAction="urn:getResourceType" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setReadableLink">
+            <soap:operation soapAction="urn:setReadableLink" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="setResourceType">
+            <soap:operation soapAction="urn:setResourceType" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <soap:operation soapAction="urn:builder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <soap:operation soapAction="urn:setId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ExternalResourceSoap12Binding" type="ns:ExternalResourcePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getArticles">
+            <soap12:operation soapAction="urn:getArticles" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <soap12:operation soapAction="urn:getId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setDescription">
+            <soap12:operation soapAction="urn:setDescription" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getReadableLink">
+            <soap12:operation soapAction="urn:getReadableLink" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setArticles">
+            <soap12:operation soapAction="urn:setArticles" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getDescription">
+            <soap12:operation soapAction="urn:getDescription" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setLink">
+            <soap12:operation soapAction="urn:setLink" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getLink">
+            <soap12:operation soapAction="urn:getLink" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getResourceType">
+            <soap12:operation soapAction="urn:getResourceType" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setReadableLink">
+            <soap12:operation soapAction="urn:setReadableLink" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="setResourceType">
+            <soap12:operation soapAction="urn:setResourceType" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <soap12:operation soapAction="urn:builder" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <soap12:operation soapAction="urn:setId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ExternalResourceHttpBinding" type="ns:ExternalResourcePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getArticles">
+            <http:operation location="getArticles"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getId">
+            <http:operation location="getId"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setDescription">
+            <http:operation location="setDescription"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getReadableLink">
+            <http:operation location="getReadableLink"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setArticles">
+            <http:operation location="setArticles"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getDescription">
+            <http:operation location="getDescription"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setLink">
+            <http:operation location="setLink"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="getLink">
+            <http:operation location="getLink"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getResourceType">
+            <http:operation location="getResourceType"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setReadableLink">
+            <http:operation location="setReadableLink"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="setResourceType">
+            <http:operation location="setResourceType"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="builder">
+            <http:operation location="builder"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setId">
+            <http:operation location="setId"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ExternalResource">
+        <wsdl:port name="ExternalResourceHttpSoap11Endpoint" binding="ns:ExternalResourceSoap11Binding">
+            <soap:address location="http://localhost:8080//services/com/example/test/model/ExternalResource"/>
+        </wsdl:port>
+        <wsdl:port name="ExternalResourceHttpSoap12Endpoint" binding="ns:ExternalResourceSoap12Binding">
+            <soap12:address location="http://localhost:8080//services/com/example/test/model/ExternalResource"/>
+        </wsdl:port>
+        <wsdl:port name="ExternalResourceHttpEndpoint" binding="ns:ExternalResourceHttpBinding">
+            <http:address location="http://localhost:8080//services/com/example/test/model/ExternalResource"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
